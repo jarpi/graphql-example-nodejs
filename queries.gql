@@ -1,0 +1,32 @@
+
+query GetCourse ($courseId: Int!) {
+  course(id:$courseId) {
+    ... CourseFields
+  }
+}
+
+query GetCourses($topic: String!) {
+  courses(topic:$topic) {
+    ... CourseFields
+    }
+}
+
+mutation AddCourse {
+  addCourse(id:5, title:"Test", author:"me", description:"test", topic:"none", url:"my.own.url.domain") {
+    ... CourseFields
+  }
+}
+
+fragment CourseFields on Course {
+    id
+  title
+  author
+  description
+  topic
+  url
+}
+
+{
+    "courseId": 5,
+  "topic": "none"
+}
