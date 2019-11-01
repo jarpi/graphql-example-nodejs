@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "create-pipeline": "az pipelines create --service-connection=\"$AZURE_CONNECTION_ID\" --yaml-path=azure-pipelines.yml --name=\"$npm_package_name\"",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "author": "",
