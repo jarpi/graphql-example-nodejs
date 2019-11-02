@@ -5,6 +5,10 @@
 
 variables:
   deploy: false
+  ACR_REPO: ''
+  AZURE_SUBSCRIPTION: ''
+  DOCKER_REPO: ''
+  PACKAGE_NAME: ''
 
 trigger:
 - master
