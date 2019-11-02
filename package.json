@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "create-webapp": "az webapp create -g $AZURE_RG -p $AZURE_APP_PLAN -n $npm_package_name -i $ACR_REPO/test/$npm_package_name:latest",
     "create-pipeline": "az pipelines create --service-connection=\"$AZURE_CONNECTION_ID\" --yaml-path=azure-pipelines.yml --name=\"$npm_package_name\"",
-    "create-webapp": "az webapp create -g $AZURE_RG -p $AZURE_APP_PLAN -n $npm_package_name -i $ACR_REPO/test/graphql:latest",
+    "deploy-azure": "az pipelines build queue --definition-name $npm_package_name --variables deploy=true PACKAGE_NAME=$npm_package_name AZURE_SUBSCRIPTION=$AZURE_SUBSCRIPTION ACR_REPO=$ACR_REPO DOCKER_REPO=test/$npm_package_name",
+    "build-azure": "az pipelines build queue --definition-name $npm_package_name --variables deploy=false ACR_REPO=$ACR_REPO DOCKER_REPO=test/$npm_package_name",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "author": "",
