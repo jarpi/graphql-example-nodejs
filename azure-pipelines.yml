@@ -33,7 +33,7 @@ steps:
   displayName: Build and Push
   inputs:
     command: buildAndPush
-    repository: test/graphql
+    repository: test/graphql-example
     tags: latest
 
 - task: AzureRmWebAppDeployment@4
@@ -44,5 +44,5 @@ steps:
     appType: 'webAppContainer'
     WebAppName: graphql-example
     DockerNamespace: martians.azurecr.io
-    DockerRepository: test/graphql
+    DockerRepository: test/graphql-example
     DockerImageTag: 'latest'
