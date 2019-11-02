@@ -27,22 +27,22 @@ steps:
   displayName: Login to ACR
   inputs:
     command: login
-    containerRegistry: variables['CONTAINER_REGISTRY']
+    containerRegistry: martians
 
 - task: Docker@2
   displayName: Build and Push
   inputs:
     command: buildAndPush
-    repository: variables['DOCKER_REPO']
+    repository: test/graphql
     tags: latest
 
 - task: AzureRmWebAppDeployment@4
   condition: eq(variables['deploy'], 'true')
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: variables['AZURE_SUBSCRIPTION']
+    azureSubscription: Evaluación gratuita(ebfc54e4-167a-49ac-b89d-8ebdedefff10)
     appType: 'webAppContainer'
-    WebAppName: variables['PACKAGE_NAME']
-    DockerNamespace: variables['ACR_REPO']
-    DockerRepository: variables['DOCKER_REPO']
+    WebAppName: graphql-example
+    DockerNamespace: martians.azurecr.io
+    DockerRepository: test/graphql
     DockerImageTag: 'latest'
