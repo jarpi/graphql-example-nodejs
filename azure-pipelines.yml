@@ -47,7 +47,7 @@ steps:
   condition: eq(variables['deploy'], 'true')
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: variables['AZURE_SUBSCRIPTION']
+    azureSubscription: Evaluación gratuita(ebfc54e4-167a-49ac-b89d-8ebdedefff10)
     appType: 'webAppContainer'
     WebAppName: variables['PACKAGE_NAME']
     DockerNamespace: variables['ACR_REPO']
