@@ -43,7 +43,7 @@ steps:
   condition: eq(variables['deploy'], 'true')
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: varibles['AZURE_SUBSCRIPTION']
+    azureSubscription: variables['AZURE_SUBSCRIPTION']
     appType: 'webAppContainer'
     WebAppName: variables['PACKAGE_NAME']
     DockerNamespace: variables['ACR_REPO']
